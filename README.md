@@ -21,6 +21,7 @@ camera module and region-specific firmware still have to be matched.
 
 ## Current target
 
+The source base is RedCherry `17` (4.14.357-openela), pinned in `versions.lock`.
 The first supported variant is **Lunaris 3.13, Android 16 (AOSP-based)** on
 `joyeuse`. Other variants are planned as separate build profiles:
 
