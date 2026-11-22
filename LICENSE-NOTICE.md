@@ -1,14 +1,18 @@
-<!-- SPDX-License-Identifier: GPL-2.0-only -->
-# LICENSE-NOTICE.md
+<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+# License notice
 
-| Path | License | Catatan |
+| Path | License | Reason |
 |---|---|---|
-| `LICENSE` (root) | GPL-2.0-only | Default untuk seluruh repo, sesuai `COPYING` kernel upstream. |
-| `patches/`, `kernel-side code/` | GPL-2.0-only | Patch adalah karya turunan dari source kernel GPL-2.0. |
-| `scripts/`, `config/` | MIT (bila dibuat original) | Tambahkan SPDX di tiap file. Belum ada file aktif. |
-| `docs/`, `README.md` | CC-BY-4.0 / lihat header | Dokumentasi. |
-| `versions.lock` | MIT | Data lock, bukan karya turunan kernel. |
+| Root `LICENSE` | GPL-2.0-only | Matches the upstream kernel `COPYING`. |
+| `patches/` and kernel-side source | GPL-2.0-only | Kernel patches are derivative works of GPL-2.0 source. |
+| `scripts/`, `config/`, `versions.lock` | MIT | Original build tooling and data files. |
+| `docs/`, `README.md` | CC-BY-4.0 | Documentation. |
 
-Perhatian: sebagian proyek root (KernelSU) dan SUSFS memiliki bagian GPLv3.
-Jangan memindahkan kode GPLv3 ke tree kernel GPL-2.0 tanpa audit per-file.
-Simpan `Signed-off-by` dan `Change-Id` original saat mengambil patch.
+Some root projects contain GPLv3 components. KernelSU permits its `kernel/`
+directory under GPL-2.0-only, while other parts are GPLv3. SUSFS is hosted
+on GitLab under a GPLv3 license file. Before importing a patch, check the
+license header of that specific file and do not place GPLv3-only code in a
+GPL-2.0-only kernel tree without resolving the conflict.
+
+Keep the original `Signed-off-by` and `Change-Id` lines when carrying a
+patch. Those are authorship and DCO records, not replaceable labels.
