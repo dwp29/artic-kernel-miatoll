@@ -6,17 +6,26 @@
 #   - Release notes must embed this file so the corresponding source is identifiable.
 
 [upstream]
-name = Saamitk/kernel_xiaomi_sm6250-switchoff
-url = https://github.com/Saamitk/kernel_xiaomi_sm6250-switchoff
-branch = a
-commit = c1e6f795b557b7bf92220c91f05a42b456de7a74
-commit_msg = Merge pull request #4 from Articuno227/aw8624/timed-output-integration
-commit_date = 2026-10-02T03:51:20Z
+name = swiitchOFF-miatoll/kernel_xiaomi_sm6250
+url = https://github.com/swiitchOFF-miatoll/kernel_xiaomi_sm6250
+branch = 17
+commit = 606346b0b53bd04582a20c7cd946e3c075245719
+commit_msg = ak3: x (Change-Id: Ibc28b9d68f5547195bdd2ccf38d612ed46d46316)
+commit_date = 2026-11-15T22:05:11Z
+author_date = 2026-02-15T01:26:17Z
 license = GPL-2.0-only per upstream COPYING
 
 [verification]
 verified_on = 2026-11-22
-verify_cmd = git ls-remote https://github.com/Saamitk/kernel_xiaomi_sm6250-switchoff.git refs/heads/a
+verify_cmd = git ls-remote https://github.com/swiitchOFF-miatoll/kernel_xiaomi_sm6250.git refs/heads/17
+
+[alternative_base]
+name = crdroidandroid/android_kernel_xiaomi_sm6250
+branch = 16.0
+commit = 8b4afb3dd59ea7f94bef73d61bc23a2b713b1df7
+commit_msg = miatoll_defconfig: Enable CONFIG_WIREGUARD
+commit_date = 2026-04-28T09:30:47Z
+note = Stable comparison base with Clang 11 + GCC 4.9.
 
 [pipeline_reference]
 name = JackA1ltman/NonGKI_Kernel_Build_2nd
@@ -31,12 +40,16 @@ note = Reference for non-GKI KSU/SUSFS build patterns only. Audit each patch fil
 sublevel = 357
 extraversion = -openela
 defconfig = vendor/xiaomi/miatoll_defconfig
+kernel_image = Image.gz
+dtb = cust-atoll-ab.dtb
+dtbo = dtbo.img
 
 [toolchain]
-first_candidate = Neutron Clang 18, field-tested on Synthetica/joyeuse with Lunaris 3.13
-fallback = Clang 11.0.1 r6443078 with GCC 4.9 prebuilts
-note = Exact compiler build still needs to be pinned after the first Artic build
-compiler_string = not yet recorded; fill from out/include/generated/compile.h after the first validated build
+primary = AOSP Clang r530567 from userariii/AOSP-clang, pinned by base build.py
+primary_flags = LLVM full, ld.lld, CC=clang, HOSTCC=clang
+field_alternative = Neutron Clang, stable on Synthetica/joyeuse, not yet pinned here
+fallback = Clang 11.0.1 r6443078 with GCC 4.9 for crDroid 16.0 base
+compiler_string = not yet recorded; fill from out/include/generated/compile.h after the first Artic build
 
 [partition]
 slot_layout = A-only
