@@ -33,8 +33,9 @@ extraversion = -openela
 defconfig = vendor/xiaomi/miatoll_defconfig
 
 [toolchain]
-reference = Clang 11.0.1 r6443078 with GCC 4.9 prebuilts
-alternative = Neutron Clang 18, community-tested, not yet pinned here
+first_candidate = Neutron Clang 18, field-tested on Synthetica/joyeuse with Lunaris 3.13
+fallback = Clang 11.0.1 r6443078 with GCC 4.9 prebuilts
+note = Exact compiler build still needs to be pinned after the first Artic build
 compiler_string = not yet recorded; fill from out/include/generated/compile.h after the first validated build
 
 [partition]
