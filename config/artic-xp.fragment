@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Artic-XP variant: port ROM (MIUI/HyperOS/Xiaomi.EU based ports).
+# Same kernel source as artic; ROM-specific values are added here only
+# after the exact port build, firmware and recovery are validated.
+# Add one CONFIG per validated build.
