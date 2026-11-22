@@ -1,10 +1,11 @@
-name: build-artic-baseline
+name: build-artic-variants
 
 on:
   push:
     branches: [main]
     paths:
       - scripts/**
+      - config/**
       - versions.lock
       - .github/workflows/build.yml
   workflow_dispatch:
@@ -13,13 +14,19 @@ permissions:
   contents: read
 
 concurrency:
-  group: artic-baseline
+  group: artic-variants
   cancel-in-progress: false
 
 jobs:
-  baseline:
+  build:
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [artic, artic-xp]
+    env:
+      VARIANT: ${{ matrix.variant }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,18 +41,18 @@ jobs:
       - name: Verify source revision and layout
         run: bash scripts/verify-source.sh
 
-      - name: Build baseline AnyKernel3 package
-        run: bash scripts/build-baseline.sh
+      - name: Build ${{ matrix.variant }}
+        run: bash scripts/build-variant.sh
 
-      - name: Upload artifacts
+      - name: Upload ${{ matrix.variant }} artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: artic-baseline
+          name: artic-${{ matrix.variant }}
           if-no-files-found: error
           path: |
             src/out/arch/arm64/boot/Image.gz
             src/out/arch/arm64/boot/dtbo.img
             src/out/arch/arm64/boot/dts/qcom/cust-atoll-ab.dtb
             src/out/include/generated/compile.h
-            src/AnyKernel3/RedCherry-kernel*.zip
+            src/AnyKernel3/artic-${{ matrix.variant }}-*.zip
             src/log.txt
