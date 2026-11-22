@@ -1,9 +1,25 @@
 <!-- SPDX-License-Identifier: CC-BY-4.0 -->
 # Platform notes
 
+## Family scope
+
+The unified LineageOS/crDroid device tree covers five OTA asserts:
+`curtana`, `excalibur`, `gram`, `joyeuse` and the generic `miatoll` target.
+The `libinit` variant table maps them as follows:
+
+| Codename | Model | Stock firmware fingerprint in tree |
+|---|---|---|
+| `joyeuse` | Redmi Note 9 Pro (Global) | `V14.0.3.0.SJZMIXM` |
+| `curtana` | Redmi Note 9S (Global) | `V14.0.4.0.SJWMIXM` |
+| `curtana` (India) | Redmi Note 10 Lite | `V14.0.5.0.SJWINRF` |
+| `excalibur` | Redmi Note 9 Pro Max | `V14.0.2.0.SJXINXM` |
+| `gram` | POCO M2 Pro | `V14.0.5.0.SJPINXM` |
+
+`lancelot` does not appear in this unified tree and is not claimed here.
+
 ## Boot layout
 
-The miatoll device tree sets:
+The shared `sm6250-common` device configuration sets:
 
 - `AB_OTA_UPDATER := false` — A-only, no `boot_a`/`boot_b`, no `init_boot`.
 - `BOARD_BOOT_HEADER_VERSION := 2`.
@@ -13,10 +29,23 @@ The miatoll device tree sets:
 - `BOARD_RAMDISK_USE_LZ4 := true`.
 - `BOARD_RECOVERYIMAGE_PARTITION_SIZE` is set separately — `recovery` is its own partition.
 
+The per-device `BoardConfig.mk` only includes the common file, sets
+`vendor/xiaomi/miatoll_defconfig` and the OTA assert. It does not override
+the slot layout. The LineageOS and crDroid copies of that file have the same
+blob SHA, so the layout does not change between those two ROM families.
+
 An AnyKernel3 installer therefore writes the kernel image to
 `/dev/block/bootdevice/by-name/boot`, with slot selection disabled. Writing
 to `boot_a`, `init_boot`, or a guessed block path will fail or damage the
 device.
+
+## About the `*_bak` partitions
+
+The LineageOS firmware guide flashes pairs such as `abl`/`ablbak`,
+`aop`/`aopbak`, `tz`/`tzbak` and `xbl`/`xblbak`. Those are redundant copies
+of bootloader components inside one slot layout. They are not A/B system
+slots. There is no `fastboot flash boot_a` or `boot_b` in the official
+guide, and the install guide flashes `recovery.img` directly to `recovery`.
 
 ## Dynamic partitions
 
