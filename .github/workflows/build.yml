@@ -1,0 +1,51 @@
+name: build-artic-baseline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/**
+      - versions.lock
+      - .github/workflows/build.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: artic-baseline
+  cancel-in-progress: false
+
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq bison flex ccache libssl-dev libelf-dev zlib1g-dev xz-utils cpio build-essential wget zip unzip python3 git
+
+      - name: Fetch pinned source
+        run: bash scripts/fetch-sources.sh
+
+      - name: Verify source revision and layout
+        run: bash scripts/verify-source.sh
+
+      - name: Build baseline AnyKernel3 package
+        run: bash scripts/build-baseline.sh
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artic-baseline
+          if-no-files-found: error
+          path: |
+            src/out/arch/arm64/boot/Image.gz
+            src/out/arch/arm64/boot/dtbo.img
+            src/out/arch/arm64/boot/dts/qcom/cust-atoll-ab.dtb
+            src/out/include/generated/compile.h
+            src/AnyKernel3/RedCherry-kernel*.zip
+            src/log.txt
