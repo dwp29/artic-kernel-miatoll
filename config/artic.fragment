@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: MIT
+# Artic variant: AOSP/Lunaris 3.13 Android 16.
+# Baseline uses the upstream defconfig unchanged.
+# Add one CONFIG per validated build.
