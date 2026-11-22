@@ -55,6 +55,8 @@ package_sha256 = not yet recorded
 [device]
 codename = joyeuse
 family = miatoll
+family_verified = curtana,excalibur,gram,joyeuse,miatoll
+lancelot = not present in the unified device tree
 rom = Lunaris 3.13
 android = 16
 kernel_type = non-GKI 4.14
