@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="860" viewBox="0 0 420 860">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#101B2F"/>
+    </linearGradient>
+    <linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4DD0E1"/>
+      <stop offset="0.55" stop-color="#26A69A"/>
+      <stop offset="1" stop-color="#7E57C2"/>
+    </linearGradient>
+    <linearGradient id="aurora-thin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4DD0E1" stop-opacity="0.15"/>
+      <stop offset="0.5" stop-color="#26A69A" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#7E57C2" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="420" height="860" fill="#0B1220"/>
+  <rect x="20" y="18" width="380" height="824" rx="38" fill="url(#bg)" stroke="#1A2A45" stroke-width="1"/>
+  <rect x="20" y="18" width="380" height="2" rx="1" fill="url(#aurora)" opacity="0.6"/>
+
+  <text x="48" y="82" fill="#E6F1FF" font-family="sans-serif" font-size="24" font-weight="700">ARTIC</text>
+  <text x="48" y="104" fill="#9FB3C8" font-family="monospace" font-size="11">ARCTIC AURORA / MANAGER</text>
+  <rect x="290" y="64" width="100" height="28" rx="14" fill="#1A2A45" stroke="#7E57C2" stroke-width="1" filter="url(#glow-soft)"/>
+  <text x="304" y="83" fill="#E6F1FF" font-family="monospace" font-size="10" font-weight="600">SIGNED OK</text>
+
+  <rect x="44" y="128" width="332" height="138" rx="16" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="64" y="160" fill="#9FB3C8" font-family="monospace" font-size="11">ROOT STATUS</text>
+  <text x="64" y="194" fill="#E6F1FF" font-family="sans-serif" font-size="26" font-weight="700">ACTIVE</text>
+  <text x="64" y="222" fill="#26A69A" font-family="monospace" font-size="12">KSU NEXT v3.4.2</text>
+  <text x="64" y="246" fill="#9FB3C8" font-family="monospace" font-size="11">4.14.357-artic-aurora</text>
+
+  <rect x="44" y="286" width="158" height="94" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="62" y="314" fill="#9FB3C8" font-family="monospace" font-size="10">BATTERY</text>
+  <text x="62" y="348" fill="#4DD0E1" font-family="sans-serif" font-size="22" font-weight="700">OK</text>
+  <rect x="218" y="286" width="158" height="94" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="236" y="314" fill="#9FB3C8" font-family="monospace" font-size="10">THERMAL</text>
+  <text x="236" y="348" fill="#E6F1FF" font-family="sans-serif" font-size="22" font-weight="700">38 C</text>
+  <rect x="44" y="396" width="158" height="94" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="62" y="424" fill="#9FB3C8" font-family="monospace" font-size="10">ZRAM</text>
+  <text x="62" y="458" fill="#4DD0E1" font-family="sans-serif" font-size="22" font-weight="700">LZ4</text>
+  <rect x="218" y="396" width="158" height="94" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="236" y="424" fill="#9FB3C8" font-family="monospace" font-size="10">SUSFS</text>
+  <text x="236" y="458" fill="#26A69A" font-family="sans-serif" font-size="22" font-weight="700">ON</text>
+
+  <text x="44" y="526" fill="#9FB3C8" font-family="monospace" font-size="11">TUNING PRESET</text>
+  <rect x="44" y="542" width="78" height="36" rx="18" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="58" y="565" fill="#9FB3C8" font-family="sans-serif" font-size="11">Battery</text>
+  <rect x="132" y="542" width="72" height="36" rx="18" fill="#1A2A45" stroke="#4DD0E1" stroke-width="1" filter="url(#glow-soft)"/>
+  <text x="144" y="565" fill="#E6F1FF" font-family="sans-serif" font-size="11" font-weight="600">Social</text>
+  <rect x="214" y="542" width="78" height="36" rx="18" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <text x="226" y="565" fill="#9FB3C8" font-family="sans-serif" font-size="11">Balance</text>
+  <rect x="302" y="542" width="74" height="36" rx="18" fill="#121E33" stroke="#7E57C2" stroke-width="1" stroke-opacity="0.6"/>
+  <text x="312" y="565" fill="#9FB3C8" font-family="sans-serif" font-size="11">Boost</text>
+
+  <text x="44" y="618" fill="#9FB3C8" font-family="monospace" font-size="11">APP PROFILES</text>
+  <rect x="44" y="634" width="332" height="62" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="72" cy="665" r="13" fill="#7E57C2" opacity="0.3"/>
+  <text x="96" y="662" fill="#E6F1FF" font-family="sans-serif" font-size="13" font-weight="600">Banking</text>
+  <text x="96" y="680" fill="#9FB3C8" font-family="monospace" font-size="10">restricted + umount</text>
+  <rect x="310" y="648" width="52" height="28" rx="14" fill="#1A2A45" stroke="#7E57C2" stroke-width="1"/>
+  <text x="322" y="667" fill="#E6F1FF" font-family="monospace" font-size="10" font-weight="600">ON</text>
+  <rect x="44" y="706" width="332" height="62" rx="14" fill="#121E33" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="72" cy="737" r="13" fill="#4DD0E1" opacity="0.3"/>
+  <text x="96" y="734" fill="#E6F1FF" font-family="sans-serif" font-size="13" font-weight="600">Social</text>
+  <text x="96" y="752" fill="#9FB3C8" font-family="monospace" font-size="10">profile + hide modules</text>
+  <rect x="310" y="720" width="52" height="28" rx="14" fill="#1A2A45" stroke="#4DD0E1" stroke-width="1"/>
+  <text x="322" y="739" fill="#E6F1FF" font-family="monospace" font-size="10" font-weight="600">ON</text>
+
+  <rect x="20" y="780" width="380" height="70" rx="24" fill="#0E1829" stroke="#1A2A45" stroke-width="1"/>
+  <rect x="40" y="780" width="340" height="1" fill="url(#aurora)" opacity="0.4"/>
+  <circle cx="72" cy="815" r="22" fill="#1A2A45" stroke="#4DD0E1" stroke-width="1.5"/>
+  <circle cx="72" cy="815" r="8" fill="#4DD0E1"/>
+  <circle cx="146" cy="815" r="22" fill="transparent" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="146" cy="815" r="7" fill="#1A2A45"/>
+  <circle cx="210" cy="815" r="22" fill="transparent" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="210" cy="815" r="7" fill="#1A2A45"/>
+  <circle cx="274" cy="815" r="22" fill="transparent" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="274" cy="815" r="7" fill="#1A2A45"/>
+  <circle cx="338" cy="815" r="22" fill="transparent" stroke="#1A2A45" stroke-width="1"/>
+  <circle cx="338" cy="815" r="7" fill="#1A2A45"/>
+  <text x="72" y="848" fill="#4DD0E1" font-family="monospace" font-size="8" text-anchor="middle" font-weight="600">STATUS</text>
+  <text x="146" y="848" fill="#9FB3C8" font-family="monospace" font-size="8" text-anchor="middle">PROFILES</text>
+  <text x="210" y="848" fill="#9FB3C8" font-family="monospace" font-size="8" text-anchor="middle">MODULES</text>
+  <text x="274" y="848" fill="#9FB3C8" font-family="monospace" font-size="8" text-anchor="middle">TUNING</text>
+  <text x="338" y="848" fill="#9FB3C8" font-family="monospace" font-size="8" text-anchor="middle">VAULT</text>
+  <rect x="20" y="858" width="380" height="2" rx="1" fill="url(#aurora)" opacity="0.6"/>
+</svg>
