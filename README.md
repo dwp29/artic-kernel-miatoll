@@ -10,13 +10,14 @@ keeps one source of patches and produces one kernel variant per ROM build.
 | Codename | Model |
 |---|---|
 | `joyeuse` | Redmi Note 9 Pro (Global) — current test device |
-| `curtana` | Redmi Note 9S |
+| `curtana` | Redmi Note 9S; the India variant is sold as Redmi Note 10 Lite |
 | `excalibur` | Redmi Note 9 Pro Max |
 | `gram` | Poco M2 Pro |
 
 All four share the SM7125 / Snapdragon 720G platform and the `sm6250`
 kernel tree. They are not automatically interchangeable: DTB, panel, NFC,
 camera module and region-specific firmware still have to be matched.
+`lancelot` is not present in the unified device tree and is not claimed.
 
 ## Current target
 
