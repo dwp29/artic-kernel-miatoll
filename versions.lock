@@ -1,0 +1,54 @@
+# Artic kernel versions.lock
+#   - 只写分支名不写 SHA 等于没有 pin（上游一动，构建不可复现）
+#   - 改动任何一行 = 一次新的构建，必须重跑 ABI 校验并单独记录
+#   - Release 正文必须内嵌本文件全文（GPL-2.0 对应源码指认）  ← 不是可选项
+
+[upstream]
+name = Saamitk/kernel_xiaomi_sm6250-switchoff
+url = https://github.com/Saamitk/kernel_xiaomi_sm6250-switchoff
+branch = a
+commit = c1e6f795b557b7bf92220c91f05a42b456de7a74
+commit_msg = Merge pull request #4 from Articuno227/aw8624/timed-output-integration
+commit_date = 2026-10-02T03:51:20Z
+license = GPL-2.0-only (kernel COPYING)
+
+[verification]
+verified_on = 2026-11-22
+verify_cmd = git ls-remote https://github.com/Saamitk/kernel_xiaomi_sm6250-switchoff.git refs/heads/a
+
+[pipeline_reference]
+name = JackA1ltman/NonGKI_Kernel_Build_2nd
+branch = mainline
+commit = ec069a4e34f992d602a6b40d2e211df2516e2865
+commit_msg = Supported_list.md: invaild format
+commit_date = 2026-11-22T09:06:42Z
+license = GPLv3 + commercial restriction
+note = Reference only. Audit per-file license before copying patches.
+
+[tree]
+sublevel = 357
+extraversion = -openela
+defconfig = vendor/xiaomi/miatoll_defconfig
+
+[toolchain]
+clang_version = UNKNOWN
+note = Pin set after first successful build. Do NOT use system clang blindly.
+
+[artifacts]
+kernel_version_string = UNKNOWN
+image_md5 = UNKNOWN
+package_md5 = UNKNOWN
+boot_index = NOT_APPLICABLE_NON_GKI
+
+[device]
+codename = joyeuse
+family = miatoll
+rom = Lunaris 3.13
+android = 16
+kernel_type = non-GKI 4.14
+bootloader = UNKNOWN
+vendor_modules = UNKNOWN
+
+[abi_baseline]
+note = GKI KMI ABI checks are NOT applicable to this non-GKI 4.14 device.
+vermagic_baseline = UNKNOWN
