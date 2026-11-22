@@ -1,3 +1,4 @@
 # SPDX-License-Identifier: MIT
-# Artic config fragment untuk varian lunaris-3.13-a16.
-# Belum diisi. Tambahkan satu opsi per patch/commits terpisah.
+# Artic config fragment for the Lunaris 3.13 / Android 16 variant.
+# Options are added one at a time, each with its own validated build record.
+# The base defconfig is vendor/xiaomi/miatoll_defconfig.
