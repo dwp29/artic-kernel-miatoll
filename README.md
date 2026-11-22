@@ -1,3 +1,5 @@
+[![build-artic-baseline](https://github.com/dwp29/artic-kernel-miatoll/actions/workflows/build.yml/badge.svg)](https://github.com/dwp29/artic-kernel-miatoll/actions/workflows/build.yml)
+
 # Artic Kernel
 
 Artic is a non-GKI Linux 4.14 kernel project for Xiaomi's miatoll family.
@@ -81,7 +83,8 @@ GCC 4.9 is the reference toolchain; Neutron Clang builds exist in the
 community but must be verified against this exact source tree. See
 `docs/TOOLCHAIN.md`.
 
-## License
+## Build
+
 
 Kernel-side code is GPL-2.0-only. Scripts and config fragments are MIT when
 originally written here. Documentation is CC-BY-4.0. See `LICENSE-NOTICE.md`.
