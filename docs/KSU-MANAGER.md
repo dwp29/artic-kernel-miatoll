@@ -57,6 +57,26 @@ Manual recovery path:
 - Rename `/data/adb/modules` to `/data/adb/modules.off` from recovery.
 - Flash the backed-up stock `boot` image if the kernel itself is at fault.
 
+## Modifying the manager APK
+
+The kernel verifies the manager before granting root. In KernelSU Next the
+check lives in `kernel/manager/apk_sign.c` as `is_manager_apk()`, using a v2
+APK signature size and hash injected from `kernel/Kbuild` via
+`KSU_NEXT_MANAGER_SIZE` and `KSU_NEXT_MANAGER_HASH`. Re-signing a modified
+APK with a new key will therefore stop root access unless the kernel is
+rebuilt with the new values, or `ksud debug set-manager <apk>` is used.
+`ksud debug get-sign <apk>` prints the size and hash to record.
+
+For real feature and UI work, fork the manager source from the same release
+line and build it with the Gradle wrapper rather than patching a compiled
+APK. Resource-only edits can be done with apktool, but still require the
+signature step. Keep the package id stable and preserve the superuser
+confirmation, safe mode and module install screens.
+
+Manager code outside `kernel/` carries a different license from the kernel
+tree. Put manager modifications in a separate repository; do not mix them
+into the GPL-2.0-only kernel repository.
+
 ## APatch-specific note
 
 APatch uses a SuperKey. Save it before rebooting: it cannot be recovered
