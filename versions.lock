@@ -1,7 +1,9 @@
-# Artic kernel versions.lock
-#   - 只写分支名不写 SHA 等于没有 pin（上游一动，构建不可复现）
-#   - 改动任何一行 = 一次新的构建，必须重跑 ABI 校验并单独记录
-#   - Release 正文必须内嵌本文件全文（GPL-2.0 对应源码指认）  ← 不是可选项
+# Artic kernel source lock
+#
+# Rules:
+#   - A branch name alone is not a pin. Record the 40-character commit.
+#   - Changing any line means a new build and a new verification record.
+#   - Release notes must embed this file so the corresponding source is identifiable.
 
 [upstream]
 name = Saamitk/kernel_xiaomi_sm6250-switchoff
@@ -10,7 +12,7 @@ branch = a
 commit = c1e6f795b557b7bf92220c91f05a42b456de7a74
 commit_msg = Merge pull request #4 from Articuno227/aw8624/timed-output-integration
 commit_date = 2026-10-02T03:51:20Z
-license = GPL-2.0-only (kernel COPYING)
+license = GPL-2.0-only per upstream COPYING
 
 [verification]
 verified_on = 2026-11-22
@@ -22,8 +24,8 @@ branch = mainline
 commit = ec069a4e34f992d602a6b40d2e211df2516e2865
 commit_msg = Supported_list.md: invaild format
 commit_date = 2026-11-22T09:06:42Z
-license = GPLv3 + commercial restriction
-note = Reference only. Audit per-file license before copying patches.
+license = GPLv3 with commercial restriction
+note = Reference for non-GKI KSU/SUSFS build patterns only. Audit each patch file before copying.
 
 [tree]
 sublevel = 357
@@ -31,14 +33,24 @@ extraversion = -openela
 defconfig = vendor/xiaomi/miatoll_defconfig
 
 [toolchain]
-clang_version = UNKNOWN
-note = Pin set after first successful build. Do NOT use system clang blindly.
+reference = Clang 11.0.1 r6443078 with GCC 4.9 prebuilts
+alternative = Neutron Clang 18, community-tested, not yet pinned here
+compiler_string = not yet recorded; fill from out/include/generated/compile.h after the first validated build
+
+[partition]
+slot_layout = A-only
+ota_updater = false
+boot_header_version = 2
+page_size = 4096
+ramdisk_compression = lz4
+dtb = included in boot image
+dtbo = separate partition
+recovery = separate partition
 
 [artifacts]
-kernel_version_string = UNKNOWN
-image_md5 = UNKNOWN
-package_md5 = UNKNOWN
-boot_index = NOT_APPLICABLE_NON_GKI
+kernel_version_string = not yet recorded
+image_sha256 = not yet recorded
+package_sha256 = not yet recorded
 
 [device]
 codename = joyeuse
@@ -46,9 +58,8 @@ family = miatoll
 rom = Lunaris 3.13
 android = 16
 kernel_type = non-GKI 4.14
-bootloader = UNKNOWN
-vendor_modules = UNKNOWN
+firmware_baseline = MIUI 14 V14.0.3.0.SJZMIXM (Global)
 
 [abi_baseline]
-note = GKI KMI ABI checks are NOT applicable to this non-GKI 4.14 device.
-vermagic_baseline = UNKNOWN
+note = GKI KMI ABI checks do not apply to this non-GKI 4.14 device.
+vermagic_baseline = not yet recorded
