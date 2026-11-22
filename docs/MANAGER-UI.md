@@ -108,4 +108,5 @@ fork before changing it; the signature gate alone is not the whole story.
 
 ## Artifact
 
-The vector mockup is stored at `docs/artic-aurora-mockup.svg`.
+Mockups: `docs/artic-aurora-mockup.svg` (v1) and `docs/artic-aurora-mockup-v2.svg`
+(refined typography, consistent strokes, aurora nav and rounded status pills).
