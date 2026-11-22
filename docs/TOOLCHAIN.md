@@ -19,6 +19,17 @@ behaviour. For a vendor 4.14 tree the practical effects are usually:
   scheduler tuning matter far more than compiler version. Benchmark the
   same source with both toolchains before claiming a difference.
 
+## Field evidence
+
+A Synthetica kernel built with Neutron Clang has been used on the same
+device family (`joyeuse`, Lunaris 3.13 / Android 16) and reported stable in
+daily use. That makes Neutron Clang the first toolchain to try for Artic.
+It is still evidence from one source revision: record the exact compiler
+build and the resulting `LINUX_COMPILER` string before treating it as a pin.
+
+Clang 11.0.1 with GCC 4.9 remains the fallback when a build is not
+reproducible with Neutron Clang.
+
 ## Rules for this project
 
 1. Pin the exact compiler build. Record it in `versions.lock`.
@@ -35,10 +46,10 @@ behaviour. For a vendor 4.14 tree the practical effects are usually:
 
 | Toolchain | Status |
 |---|---|
-| Clang 11.0.1 r6443078 + GCC 4.9 | Reference combination for this kernel line. |
-| Neutron Clang 18 | Used in community miatoll kernels; verify against this tree before adopting. |
+| Neutron Clang 18 | Field-tested on Synthetica/joyeuse; first candidate for Artic. |
+| Clang 11.0.1 r6443078 + GCC 4.9 | Reference combination; fallback. |
 | System Clang 18 | Known to fail on this source line. |
 
-The first validated build decides the pinned value. Until then
+The first validated Artic build decides the pinned value. Until then
 `versions.lock` keeps the intended combinations and leaves the actual
 compiler string unrecorded.
