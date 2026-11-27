@@ -62,4 +62,5 @@ ZIP="artic-${VARIANT}-$(date +%Y%m%d-%H%M).zip"
 zip -r9 "$ZIP" . >/dev/null
 echo "--- checksums ---"
 sha256sum "$ZIP" ../"$IMAGE" ../"$DTBO" ../"$DTB"
+touch "$ROOT/src/log.txt"
 echo "BUILD_OK $VARIANT $ZIP"
